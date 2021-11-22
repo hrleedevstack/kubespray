@@ -3,6 +3,13 @@
 # RBAC required. see docs/getting-started.md for access details.
 # dashboard_enabled: false
 
+
+# --test--add--
+# GPU Operator test
+gpu_operator_node_prep_enabled: false
+gpu_operator_enabled: false
+
+
 # Helm deployment
 helm_enabled: false
 

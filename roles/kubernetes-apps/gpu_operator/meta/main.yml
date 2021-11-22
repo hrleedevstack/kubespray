@@ -1,0 +1,13 @@
+---
+dependencies:
+  - role: helm
+    when: helm_enabled
+    tags: apps
+          helm
+          gpu_operator
+
+  - role: gpu_operator_node_pref
+    whel: gpu_operator_node_pref_enabled
+    tags: apps
+          gpu_operator_node_pref
+          gpu_operator
