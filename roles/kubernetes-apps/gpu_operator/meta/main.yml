@@ -6,8 +6,8 @@ dependencies:
           helm
           gpu_operator
 
-  - role: gpu_operator_node_pref
-    whel: gpu_operator_node_pref_enabled
+  - role: gpu_operator_node_prep
+    whel: gpu_operator_node_prep_enabled
     tags: apps
-          gpu_operator_node_pref
+          gpu_operator_node_prep
           gpu_operator
