@@ -363,6 +363,8 @@ k8s_image_pull_policy: IfNotPresent
 dashboard_enabled: false
 
 # Addons which can be enabled
+gpu_operator_node_prep_enabled: false
+gpu_operator_enabled: false
 helm_enabled: false
 krew_enabled: false
 registry_enabled: false
