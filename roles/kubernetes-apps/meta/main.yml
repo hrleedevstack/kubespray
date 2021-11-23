@@ -4,17 +4,17 @@ dependencies:
     when:
       - inventory_hostname == groups['kube_control_plane'][0]
 
-  - role: kubernetes-apps/gpu_operator_node_prep
-    when:
-      - gpu_operator_node_prep_enabled
-    tags:
-      - gpu_operator_node_prep
-
   - role: kubernetes-apps/helm
     when:
       - helm_enabled
     tags:
       - helm
+
+  - role: kubernetes-apps/gpu_operator_node_prep
+    when:
+      - gpu_operator_node_prep_enabled
+    tags:
+      - gpu_operator_node_prep
 
   - role: kubernetes-apps/gpu_operator
     when:
