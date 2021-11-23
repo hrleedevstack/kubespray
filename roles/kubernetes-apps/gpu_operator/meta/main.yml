@@ -9,8 +9,3 @@ dependencies:
     whel: gpu_operator_node_prep_enabled
     tags: apps
           gpu_operator_node_prep
-
-  - role: gpu_operator
-    whel: gpu_operator_enabled
-    tags: apps
-          gpu_operator

@@ -10,17 +10,17 @@ dependencies:
     tags:
       - gpu_operator_node_prep
 
-  - role: kubernetes-apps/gpu_operator
-    when:
-      - gpu_operator_enabled
-    tags:
-      - gpu_operator
-
   - role: kubernetes-apps/helm
     when:
       - helm_enabled
     tags:
       - helm
+
+  - role: kubernetes-apps/gpu_operator
+    when:
+      - gpu_operator_enabled
+    tags:
+      - gpu_operator
 
   - role: kubernetes-apps/krew
     when:
