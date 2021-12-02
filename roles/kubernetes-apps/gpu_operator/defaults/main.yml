@@ -1,7 +1,6 @@
 ---
 gpu_operator_enabled: false
 
-
 # See GitHub for more information https://github.com/NVIDIA/gpu-operator
 
 # For vGPU support, this role require a manual build step to create a driver container image in a private registry
@@ -13,7 +12,7 @@ gpu_operator_helm_repo: "https://nvidia.github.io/gpu-operator"
 gpu_operator_chart_name: "nvidia/gpu-operator"
 gpu_operator_release_name: "nvidia-gpu-operator"
 gpu_operator_chart_version: "1.8.2"
-k8s_gpu_mig_strategy: "mixed"
+k8s_gpu_mig_strategy: "single"
 
 # Configuration customization
 # XXX: This currently appears to be hardcoded in the operator
@@ -36,3 +35,6 @@ gpu_operator_registry_username: "$oauthtoken"
 gpu_operator_registry_password: ""
 ## This is most likely an NGC email
 gpu_operator_registry_email: ""
+
+## Variable for mig_strategy
+gpu_operator_mig_instance: "all-1g.5gb"

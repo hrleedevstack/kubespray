@@ -3,21 +3,24 @@
 # RBAC required. see docs/getting-started.md for access details.
 # dashboard_enabled: false
 
-
-# --test--add--
 # GPU Operator test
 gpu_operator_node_prep_enabled: false
 gpu_operator_enabled: false
+## List of gpu operator nodes
+# nvidia_gpu_operator_nodes:
+#   - kube-gpu-001
+## Variable for mig_instance
+# gpu_operator_mig_instance: "all-1g.5gb"
 ## Vars needed to install operator
 # gpu_operator_helm_repo: "https://nvidia.github.io/gpu-operator"
 # gpu_operator_chart_name: "nvidia/gpu-operator"
 # gpu_operator_release_name: "nvidia-gpu-operator"
 # gpu_operator_chart_version: "1.8.2"
-# k8s_gpu_mig_strategy: "mixed"
+# k8s_gpu_mig_strategy: "single"
 ## Configuration customization
 ## XXX: This currently appears to be hardcoded in the operator
 # gpu_operator_namespace: "gpu-operator-resources"
-# gpu_operator_grid_config_dir: "{{ deepops_dir }}/gpu_operator"
+# gpu_operator_grid_config_dir: "{{ kube_config_dir }}/addons/gpu_operator"
 ## Defaults from https://github.com/NVIDIA/gpu-operator/blob/master/deployments/gpu-operator/values.yaml
 # gpu_operator_default_runtime: "docker"
 # gpu_operator_driver_registry: "nvcr.io/nvidia"
@@ -33,7 +36,6 @@ gpu_operator_enabled: false
 # gpu_operator_registry_password: ""
 ## This is most likely an NGC email
 # gpu_operator_registry_email: ""
-
 
 # Helm deployment
 helm_enabled: false
