@@ -16,7 +16,9 @@ gpu_operator_enabled: false
 # gpu_operator_chart_name: "nvidia/gpu-operator"
 # gpu_operator_release_name: "nvidia-gpu-operator"
 # gpu_operator_chart_version: "1.8.2"
+# gpu_operator_toolkit_version: "1.7.1-ubuntu18.04"
 # k8s_gpu_mig_strategy: "single"
+# gpu_operator_toolkit_version
 ## Configuration customization
 ## XXX: This currently appears to be hardcoded in the operator
 # gpu_operator_namespace: "gpu-operator-resources"
