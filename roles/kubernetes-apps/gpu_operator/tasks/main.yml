@@ -52,7 +52,7 @@
 #-----------------------------
 # adding label
 
-- name: Set role node label to empty list
+- name: Set gpu node label to empty list
   set_fact:
     gpu_node_labels: []
 
