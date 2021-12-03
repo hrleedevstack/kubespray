@@ -1,11 +1,11 @@
 ---
 dependencies:
-  - role: helm
-    when: helm_enabled
-    tags: apps
-          helm
+  # - role: helm
+  #   when: helm_enabled
+  #   tags: apps
+  #         helm
 
-  - role: gpu_operator_node_prep
-    whel: gpu_operator_node_prep_enabled
-    tags: apps
-          gpu_operator_node_prep
+  # - role: gpu_operator_node_prep
+  #   whel: gpu_operator_node_prep_enabled
+  #   tags: apps
+  #         gpu_operator_node_prep
