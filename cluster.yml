@@ -124,4 +124,13 @@
   environment: "{{ proxy_disable_env }}"
   roles:
     - { role: kubespray-defaults }
+    - { role: kubernetes-apps/gpu_operator_node_prep, tags: gpu-operator-node-prep }
+    - { role: kubernetes-apps/gpu_operator, tags: gpu-operator }
+
+- hosts: k8s_cluster
+  gather_facts: False
+  any_errors_fatal: "{{ any_errors_fatal | default(true) }}"
+  environment: "{{ proxy_disable_env }}"
+  roles:
+    - { role: kubespray-defaults }
     - { role: kubernetes/preinstall, when: "dns_mode != 'none' and resolvconf_mode == 'host_resolvconf'", tags: resolvconf, dns_late: true }
