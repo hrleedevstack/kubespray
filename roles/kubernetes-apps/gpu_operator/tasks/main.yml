@@ -44,7 +44,7 @@
 
   - name: update helm repos
     command: '"{{ bin_dir }}/helm" repo update'
-  when: inventory_hostname == groups['kube_control_plane']
+  when: inventory_hostname in groups['kube_control_plane']
 
   # XXX: This currently installs into the default namespace, as per the GPU Operator docs
   # https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/getting-started.html
