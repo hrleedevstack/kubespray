@@ -55,31 +55,36 @@
 #-----------------------------
 # adding label
 
-- name: Set gpu node label to empty list
+# - name: Set gpu node label to empty list
+- name: Set gpu node label
   set_fact:
-    gpu_node_labels: []
+#    gpu_node_labels: []
+    gpu_node_labels: [ 'nvidia.com/gpu.deploy.mig-manager=true', 'nvidia.com/mig.stragegy={{ k8s_gpu_mig_strategy }}', 'nvidia.com/mig.config={{ gpu_operator_mig_instance }}' ]
+    when:
+      - nvidia_gpu_operator_nodes is defined
+      - inventory_hostname in nvidia_gpu_operator_nodes 
 
 # if 'gpu.deploy.mig-manager' label is auto-added, remove this step
-- name: Node mig manager label for nvidia GPU Operator nodes
-  set_fact:
-    gpu_node_labels: "{{ gpu_node_labels + [ 'nvidia.com/gpu.deploy.mig-manager=true' ] }}"
-  when:
-    - nvidia_gpu_operator_nodes is defined
-    - inventory_hostname in nvidia_gpu_operator_nodes
+# - name: Node mig manager label for nvidia GPU Operator nodes
+#   set_fact:
+#     gpu_node_labels: "{{ gpu_node_labels + [ 'nvidia.com/gpu.deploy.mig-manager=true' ] }}"
+#   when:
+#     - nvidia_gpu_operator_nodes is defined
+#     - inventory_hostname in nvidia_gpu_operator_nodes
 
-- name: Node mig stragegy label for nvidia GPU Operator nodes
-  set_fact:
-    gpu_node_labels: "{{ gpu_node_labels + [ 'nvidia.com/mig.stragegy={{ k8s_gpu_mig_strategy }}' ] }}"
-  when:
-    - nvidia_gpu_operator_nodes is defined
-    - inventory_hostname in nvidia_gpu_operator_nodes
+# - name: Node mig stragegy label for nvidia GPU Operator nodes
+#   set_fact:
+#     gpu_node_labels: "{{ gpu_node_labels + [ 'nvidia.com/mig.stragegy={{ k8s_gpu_mig_strategy }}' ] }}"
+#   when:
+#     - nvidia_gpu_operator_nodes is defined
+#     - inventory_hostname in nvidia_gpu_operator_nodes
 
-- name: Node mig instance config label for nvidia GPU Operator nodes
-  set_fact:
-    gpu_node_labels: "{{ gpu_node_labels + [ 'nvidia.com/mig.config={{ gpu_operator_mig_instance }}' ] }}"
-  when:
-    - nvidia_gpu_operator_nodes is defined
-    - inventory_hostname in nvidia_gpu_operator_nodes
+# - name: Node mig instance config label for nvidia GPU Operator nodes
+#   set_fact:
+#     gpu_node_labels: "{{ gpu_node_labels + [ 'nvidia.com/mig.config={{ gpu_operator_mig_instance }}' ] }}"
+#   when:
+#     - nvidia_gpu_operator_nodes is defined
+#     - inventory_hostname in nvidia_gpu_operator_nodes
 
 - debug:  # noqa unnamed-task
     var: gpu_node_labels
