@@ -59,7 +59,7 @@
 - name: Set gpu node label
   set_fact:
 #    gpu_node_labels: []
-    gpu_node_labels: [ 'nvidia.com/gpu.deploy.mig-manager=true', 'nvidia.com/mig.stragegy={{ k8s_gpu_mig_strategy }}', 'nvidia.com/mig.config={{ gpu_operator_mig_instance }}' ]
+    gpu_node_labels: [ 'nvidia.com/gpu.deploy.mig-manager=true', 'nvidia.com/mig.strategy={{ k8s_gpu_mig_strategy }}', 'nvidia.com/mig.config={{ gpu_operator_mig_instance }}' ]
     when:
       - nvidia_gpu_operator_nodes is defined
       - inventory_hostname in nvidia_gpu_operator_nodes 
